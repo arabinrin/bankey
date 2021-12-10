@@ -1,0 +1,201 @@
+import 'package:bankey/model/budget.dart';
+import 'package:bankey/model/budget_item.dart';
+import 'package:bankey/utils/constant.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+
+class Budget extends StatefulWidget {
+  const Budget({Key? key}) : super(key: key);
+
+  @override
+  _BudgetState createState() => _BudgetState();
+}
+
+class _BudgetState extends State<Budget> {
+  @override
+  Widget build(BuildContext context) {
+    final formatCurrency = new NumberFormat.simpleCurrency();
+
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final GlobalKey<ScaffoldState> _scaffoldKey =
+        new GlobalKey<ScaffoldState>();
+    int _current = 0;
+
+    return Scaffold(
+      key: _scaffoldKey,
+      backgroundColor: Color(0xFFF9F9FB),
+      body: Container(
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                height: height * .4,
+                width: width,
+                decoration: BoxDecoration(
+                  color: kprimarycolor,
+                  borderRadius: BorderRadius.vertical(
+                      bottom: Radius.elliptical(width, 100.0)),
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState!.openDrawer();
+                            },
+                            icon: const Icon(
+                              Icons.menu_rounded,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Budget',
+                            style: GoogleFonts.dmSans(
+                              textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                                letterSpacing: .4,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CarouselSlider.builder(
+                      itemCount: budgetList.length,
+                      options: CarouselOptions(
+                        enableInfiniteScroll: false,
+                        height: 110,
+                        reverse: true,
+                        viewportFraction: .55,
+                        enlargeCenterPage: true,
+                        enlargeStrategy: CenterPageEnlargeStrategy.height,
+                        //    onPageChanged: (index, reasom) =>
+                        //       setState(() => _current = index),
+                      ),
+                      itemBuilder: (_, index, o) {
+                        return Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                          width: 180,
+                          child: Column(
+                            children: [
+                              Text(
+                                formatCurrency.format(budgetList[index].price),
+                                style: GoogleFonts.dmSans(
+                                  textStyle: const TextStyle(
+                                    fontSize: 35,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                budgetList[index].month,
+                                style: GoogleFonts.dmSans(
+                                  textStyle: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: 250,
+              right: width * .1,
+              child: Container(
+                width: width * .8,
+                height: height * .6,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                child: ListView.separated(
+                    separatorBuilder: (BuildContext context, index) => Divider(
+                          height: 10,
+                        ),
+                    itemCount: budgetItem.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10)),
+                        padding: EdgeInsets.all(12),
+                        height: 200,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'images/burger.png',
+                                      height: 30,
+                                      width: 30,
+                                      // color: kGreen,
+                                    ),
+                                    SizedBox(width: 10,),
+                                    Text(
+                                      budgetItem[index].item,
+                                      style: GoogleFonts.dmSans(
+                                        textStyle: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700,
+                                          color: kBlack,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  '\$${budgetItem[index].daily}/day',
+                                  style: GoogleFonts.dmSans(
+                                    textStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                      color: kBlack,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
