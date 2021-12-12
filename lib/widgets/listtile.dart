@@ -12,12 +12,12 @@ class ListTiling extends StatelessWidget {
       leading: ImageIcon(
         AssetImage(image),
         size: 25,
-        color: Colors.black,
+        color: Colors.white
       ),
       title: Text(text,style: GoogleFonts.dmSans( textStyle: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
-                    color: kBlack,
+                    color: Colors.white,
                   ),
 
       ),),

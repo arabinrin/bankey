@@ -1,4 +1,6 @@
 import 'package:bankey/screens/budget.dart';
+import 'package:bankey/screens/dashboard.dart';
+import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/listtile.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,12 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Padding(
+      child: Container(
+        decoration: BoxDecoration(
+          color: kprimarycolor,
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+        ),
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
@@ -21,6 +28,11 @@ class DrawerWidget extends StatelessWidget {
                   changeScreen(context, Budget());
                 },
                 child: ListTiling('images/house.png', 'Budget')),
+            GestureDetector(
+                onTap: () {
+                  changeScreen(context, DashBoaard());
+                },
+                child: ListTiling('images/house.png', 'Dashboard')),
           ],
         ),
       ),

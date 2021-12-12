@@ -15,7 +15,7 @@ class BudgetItemModel {
 
 List<BudgetItemModel> budgetItem = [
   BudgetItemModel(target: 900, point: 450, item: 'Lunch and Dinner', daily: 52),
-  BudgetItemModel(target: 900, point: 200, item: 'Car fuel', daily: 20),
+  BudgetItemModel(target: 900, point: 700, item: 'Car fuel', daily: 20),
   BudgetItemModel(
-      target: 900, point: 230, item: 'Medical allowance', daily: 30),
+      target: 900, point: 530, item: 'Medical allowance', daily: 30),
 ];

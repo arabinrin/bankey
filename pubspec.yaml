@@ -49,6 +49,8 @@ dependencies:
   otp_text_field: 
   syncfusion_flutter_gauges:
   carousel_slider:
+  percent_indicator:
+  flutter_zoom_drawer:
 
 
 

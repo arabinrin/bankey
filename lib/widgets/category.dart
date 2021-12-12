@@ -4,6 +4,7 @@ import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+
 class CategoryTile extends StatefulWidget {
   const CategoryTile({
     Key? key,

@@ -1,10 +1,15 @@
 import 'package:bankey/model/budget.dart';
 import 'package:bankey/model/budget_item.dart';
 import 'package:bankey/utils/constant.dart';
+import 'package:bankey/widgets/budget_listview.dart';
+import 'package:bankey/widgets/drawer.dart';
+import 'package:bankey/widgets/test_drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class Budget extends StatefulWidget {
   const Budget({Key? key}) : super(key: key);
@@ -26,6 +31,7 @@ class _BudgetState extends State<Budget> {
 
     return Scaffold(
       key: _scaffoldKey,
+      drawer: DrawerWidget(),
       backgroundColor: Color(0xFFF9F9FB),
       body: Container(
         child: Stack(
@@ -76,7 +82,7 @@ class _BudgetState extends State<Budget> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     CarouselSlider.builder(
@@ -135,62 +141,9 @@ class _BudgetState extends State<Budget> {
                 height: height * .6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                  color: Color(0xFFF9F9FB),
                 ),
-                child: ListView.separated(
-                    separatorBuilder: (BuildContext context, index) => Divider(
-                          height: 10,
-                        ),
-                    itemCount: budgetItem.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.all(12),
-                        height: 200,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      'images/burger.png',
-                                      height: 30,
-                                      width: 30,
-                                      // color: kGreen,
-                                    ),
-                                    SizedBox(width: 10,),
-                                    Text(
-                                      budgetItem[index].item,
-                                      style: GoogleFonts.dmSans(
-                                        textStyle: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700,
-                                          color: kBlack,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  '\$${budgetItem[index].daily}/day',
-                                  style: GoogleFonts.dmSans(
-                                    textStyle: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w700,
-                                      color: kBlack,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
+                child: BudgetListView(width: width),
               ),
             ),
           ],
