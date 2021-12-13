@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bankey/screens/fingerprint.dart';
 import 'package:bankey/screens/number_sign_up.dart';
 import 'package:bankey/screens/test.dart';
 import 'package:bankey/utils/constant.dart';
@@ -61,15 +62,9 @@ class _SummaryState extends State<Summary> {
                       ),
                     ),
                   ),
-                  IconButton(
-                      onPressed: () async {
-                        await _auth.signOut();
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NumberLog()));
-                      },
-                      icon: Icon(Icons.logout))
+                  const SizedBox(
+                    width: 10,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -169,9 +164,3 @@ class _SummaryState extends State<Summary> {
     );
   }
 }
-
-
-
-
-
-

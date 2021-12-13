@@ -51,6 +51,10 @@ dependencies:
   carousel_slider:
   percent_indicator:
   flutter_zoom_drawer:
+  local_auth:
+  fl_chart:
+  passcode_screen: 
+
 
 
 

@@ -1,4 +1,7 @@
+import 'package:bankey/screens/insight.dart';
+import 'package:bankey/screens/passcode.dart';
 import 'package:bankey/utils/constant.dart';
+import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/activities.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +24,7 @@ class _DashBoaardState extends State<DashBoaard> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9FB),
+      backgroundColor: whiteback,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -73,14 +76,15 @@ class _DashBoaardState extends State<DashBoaard> {
                             Container(
                               height: 50,
                               width: 50,
-                              decoration: const BoxDecoration(
+                              decoration:  BoxDecoration(
+                                shape: BoxShape.circle,
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    'images/Profile Image.png',
+                                    'images/1715.png',
                                   ),
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.cover,
                                 ),
-                                color: Colors.red,
+                                color:kprimarycolor,
                               ),
                             ),
                           ],
@@ -269,13 +273,23 @@ class _DashBoaardState extends State<DashBoaard> {
                         img: 'images/send.png',
                         name: 'Transfer',
                       ),
-                      ActivityCard(
-                        img: 'images/credit.png',
-                        name: 'My Card',
+                      InkWell(
+                         onTap: () {
+                          changeScreen(context, DemoPage());
+                        },
+                        child: ActivityCard(
+                          img: 'images/credit.png',
+                          name: 'My Card',
+                        ),
                       ),
-                      ActivityCard(
-                        img: 'images/growth.png',
-                        name: 'Insight',
+                      InkWell(
+                        onTap: () {
+                          changeScreen(context, Insight());
+                        },
+                        child: ActivityCard(
+                          img: 'images/growth.png',
+                          name: 'Insight',
+                        ),
                       ),
                     ],
                   ),
@@ -555,7 +569,8 @@ class _DashBoaardState extends State<DashBoaard> {
                                 textAlign: TextAlign.start,
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 20),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 20),
                                 child: Text(
                                   'Invite Now',
                                   style: GoogleFonts.dmSans(

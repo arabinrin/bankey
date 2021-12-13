@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:bankey/screens/fingerprint.dart';
 import 'package:bankey/screens/signup.dart';
 import 'package:bankey/screens/splash.dart';
 import 'package:bankey/screens/summary.dart';
@@ -77,6 +78,6 @@ class _InitializerState extends State<Initializer> {
           ))
         : _user == null
             ? AnimatedSplash()
-            : Summary();
+            : Fingerprint();
   }
 }

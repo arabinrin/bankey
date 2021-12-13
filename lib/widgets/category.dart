@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bankey/model/category.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,8 +44,8 @@ class _CategoryTileState extends State<CategoryTile> {
           crossAxisCount: 2,
           childAspectRatio: (2 / 3),
         ),
-        itemCount: 3,
-        itemBuilder: (BuildContext context, int index) {
+        itemCount: categoryModel.length,
+        itemBuilder: (BuildContext context, int i) {
           return Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(color: Colors.white),
@@ -81,7 +82,7 @@ class _CategoryTileState extends State<CategoryTile> {
                             positionFactor: 0.2,
                             horizontalAlignment: GaugeAlignment.center,
                             widget: Image.asset(
-                              'images/fuel.png',
+                              categoryModel[i].img,
                               height: 40,
                               width: 40,
                               // color: kGreen,
@@ -109,7 +110,7 @@ class _CategoryTileState extends State<CategoryTile> {
                   ]),
                 ),
                 Text(
-                  'Medical Allowances',
+                  categoryModel[i].item,
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       fontSize: 20,
@@ -120,7 +121,7 @@ class _CategoryTileState extends State<CategoryTile> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  '\$400',
+                  '\$${categoryModel[i].price}',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       fontSize: 16,
