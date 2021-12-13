@@ -1,5 +1,6 @@
 import 'package:bankey/screens/budget.dart';
 import 'package:bankey/screens/dashboard.dart';
+import 'package:bankey/screens/finance_report.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/listtile.dart';
@@ -33,6 +34,11 @@ class DrawerWidget extends StatelessWidget {
                   changeScreen(context, DashBoaard());
                 },
                 child: ListTiling('images/house.png', 'Dashboard')),
+            GestureDetector(
+                onTap: () {
+                  changeScreen(context, FinancialReport());
+                },
+                child: ListTiling('images/house.png', 'FInancial Report')),
           ],
         ),
       ),

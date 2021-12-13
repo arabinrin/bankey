@@ -34,7 +34,11 @@ class _CategoryTileState extends State<CategoryTile> {
       });
     });
   }
-
+  @override
+  void dispose() {
+    _timer!.cancel();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -156,9 +160,5 @@ class _CategoryTileState extends State<CategoryTile> {
         });
   }
 
-  @override
-  void dispose() {
-    _timer!.cancel();
-    super.dispose();
-  }
+  
 }

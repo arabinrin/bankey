@@ -1,3 +1,4 @@
+import 'package:bankey/screens/finance_report.dart';
 import 'package:bankey/screens/insight.dart';
 import 'package:bankey/screens/passcode.dart';
 import 'package:bankey/utils/constant.dart';
@@ -223,14 +224,20 @@ class _DashBoaardState extends State<DashBoaard> {
                             SizedBox(
                               height: 5,
                             ),
-                            Text(
-                              'Tell me more',
-                              style: GoogleFonts.dmSans(
-                                textStyle: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w700,
-                                  color: kprimarycolor,
+
+                            InkWell(
+                                onTap: () {
+                          changeScreen(context,FinancialReport());
+                        },
+                              child: Text(
+                                'Tell me more',
+                                style: GoogleFonts.dmSans(
+                                  textStyle: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    color: kprimarycolor,
+                                  ),
                                 ),
                               ),
                             ),
