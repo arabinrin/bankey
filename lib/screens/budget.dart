@@ -3,7 +3,6 @@ import 'package:bankey/model/budget_item.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/widgets/budget_listview.dart';
 import 'package:bankey/widgets/drawer.dart';
-import 'package:bankey/widgets/test_drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -31,8 +30,8 @@ class _BudgetState extends State<Budget> {
 
     return Scaffold(
       key: _scaffoldKey,
-      drawer: DrawerWidget(),
-      backgroundColor: Color(0xFFF9F9FB),
+      drawer:const DrawerWidget(),
+      backgroundColor:const Color(0xFFF9F9FB),
       body: Container(
         child: Stack(
           children: [
@@ -100,7 +99,7 @@ class _BudgetState extends State<Budget> {
                       itemBuilder: (_, index, o) {
                         return Container(
                           padding:
-                              EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                          const    EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           width: 180,
                           child: Column(
                             children: [
@@ -141,7 +140,7 @@ class _BudgetState extends State<Budget> {
                 height: height * .6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFF9F9FB),
+                  color: const Color(0xFFF9F9FB),
                 ),
                 child: BudgetListView(width: width),
               ),

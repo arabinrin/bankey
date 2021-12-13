@@ -44,15 +44,15 @@ class _CategoryTileState extends State<CategoryTile> {
     return GridView.builder(
         physics: ScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: (2 / 3),
         ),
         itemCount: categoryModel.length,
         itemBuilder: (BuildContext context, int i) {
           return Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(color: Colors.white),
+            margin:const EdgeInsets.all(10),
+            decoration:const BoxDecoration(color: Colors.white),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -139,7 +139,7 @@ class _CategoryTileState extends State<CategoryTile> {
                   height: 10,
                 ),
                 Container(
-                    padding: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+                    padding:const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(5),

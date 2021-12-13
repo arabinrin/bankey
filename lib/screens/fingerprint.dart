@@ -10,8 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:bankey/utils/constant.dart';
-import 'package:flutter/material.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:passcode_screen/circle.dart';
 import 'package:passcode_screen/keyboard.dart';
@@ -84,7 +82,7 @@ class _FingerprintState extends State<Fingerprint> {
       authorized = authenticated ? "Authorized" : " to authenticate";
       print(authorized);
       if (authenticated) {
-        changeScreenReplacement(context, Summary());
+        changeScreenReplacement(context,const Summary());
       }
     });
   }
@@ -115,9 +113,9 @@ class _FingerprintState extends State<Fingerprint> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => NumberLog()));
+                                    builder: (context) =>const NumberLog()));
                           },
-                          icon: Icon(Icons.logout))),
+                          icon:const Icon(Icons.logout))),
                 ]),
             Container(
               margin: const EdgeInsets.symmetric(
@@ -177,11 +175,11 @@ class _FingerprintState extends State<Fingerprint> {
               onTap: () {
                 _showLockScreen(
                   context,
-                  keyboardUIConfig: KeyboardUIConfig(
+                  keyboardUIConfig:const KeyboardUIConfig(
                     digitFillColor: Colors.transparent,
                     digitInnerMargin: const EdgeInsets.all(10),
                     digitTextStyle:
-                        const TextStyle(fontSize: 30, color: Colors.black),
+                         TextStyle(fontSize: 30, color: Colors.black),
                     digitBorderWidth: 0,
                     primaryColor: Colors.transparent,
                   ),
@@ -190,9 +188,9 @@ class _FingerprintState extends State<Fingerprint> {
                       fillColor: kprimarycolor,
                       circleSize: 20),
                   opaque: true,
-                  cancelButton: Text(
+                  cancelButton:const Text(
                     'Cancel',
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 16,
                       color: Colors.black,
                     ),

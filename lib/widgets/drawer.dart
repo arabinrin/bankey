@@ -15,7 +15,7 @@ class DrawerWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: kprimarycolor,
-          borderRadius: BorderRadius.only(
+          borderRadius:const BorderRadius.only(
               topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
         ),
         padding: const EdgeInsets.all(8.0),
@@ -26,17 +26,17 @@ class DrawerWidget extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context, Budget());
+                  changeScreen(context,const Budget());
                 },
                 child: ListTiling('images/house.png', 'Budget')),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context, DashBoaard());
+                  changeScreen(context,const DashBoaard());
                 },
                 child: ListTiling('images/house.png', 'Dashboard')),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context, FinancialReport());
+                  changeScreen(context,const FinancialReport());
                 },
                 child: ListTiling('images/house.png', 'FInancial Report')),
           ],

@@ -34,12 +34,12 @@ class _DashBoaardState extends State<DashBoaard> {
               child: Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding:const EdgeInsets.all(20),
                     height: height * .35,
                     color: kprimarycolor,
                     child: Column(
                       children: [
-                        SizedBox(
+                      const  SizedBox(
                           height: 80,
                         ),
                         Row(
@@ -67,7 +67,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w400,
                                         color:
-                                            Color(0xFFFFFFFF).withOpacity(.8),
+                                         const   Color(0xFFFFFFFF).withOpacity(.8),
                                       ),
                                     ),
                                   ),
@@ -79,7 +79,7 @@ class _DashBoaardState extends State<DashBoaard> {
                               width: 50,
                               decoration:  BoxDecoration(
                                 shape: BoxShape.circle,
-                                image: DecorationImage(
+                                image:const DecorationImage(
                                   image: AssetImage(
                                     'images/1715.png',
                                   ),
@@ -105,7 +105,7 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        const    EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -126,7 +126,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                               const     SizedBox(
                                       height: 5,
                                     ),
                                     Row(
@@ -141,7 +141,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                               shape: BoxShape.circle,
                                             ),
                                           ),
-                                          SizedBox(
+                                        const  SizedBox(
                                             width: 4,
                                           ),
                                           Text(
@@ -171,7 +171,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                  const  SizedBox(
                                       height: 5,
                                     ),
                                     Row(children: [
@@ -183,7 +183,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                           shape: BoxShape.circle,
                                         ),
                                       ),
-                                      SizedBox(
+                                   const   SizedBox(
                                         width: 4,
                                       ),
                                       Text(
@@ -201,11 +201,11 @@ class _DashBoaardState extends State<DashBoaard> {
                                 )
                               ],
                             ),
-                            SizedBox(
+                          const  SizedBox(
                               height: 10,
                             ),
                             Divider(),
-                            SizedBox(
+                         const   SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -221,13 +221,13 @@ class _DashBoaardState extends State<DashBoaard> {
                               maxLines: 2,
                               textAlign: TextAlign.start,
                             ),
-                            SizedBox(
+                         const   SizedBox(
                               height: 5,
                             ),
 
                             InkWell(
                                 onTap: () {
-                          changeScreen(context,FinancialReport());
+                          changeScreen(context, const FinancialReport());
                         },
                               child: Text(
                                 'Tell me more',
@@ -249,7 +249,7 @@ class _DashBoaardState extends State<DashBoaard> {
                 ],
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
             Padding(
@@ -291,7 +291,7 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                       InkWell(
                         onTap: () {
-                          changeScreen(context, Insight());
+                          changeScreen(context,const Insight());
                         },
                         child: ActivityCard(
                           img: 'images/growth.png',
@@ -322,7 +322,7 @@ class _DashBoaardState extends State<DashBoaard> {
                     height: 20,
                   ),
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding:const EdgeInsets.all(20),
                     height: 370,
                     width: width * .8,
                     decoration: BoxDecoration(
@@ -360,14 +360,14 @@ class _DashBoaardState extends State<DashBoaard> {
                                     textStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
-                                      color: Color(0xFF1C1939).withOpacity(.8),
+                                      color:const Color(0xFF1C1939).withOpacity(.8),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10),
+                              padding:const EdgeInsets.all(10),
                               child: LinearPercentIndicator(
                                 backgroundColor: Colors.grey.withOpacity(.5),
                                 width: width * .6,
@@ -381,7 +381,7 @@ class _DashBoaardState extends State<DashBoaard> {
                             ),
                           ],
                         ),
-                        Divider(),
+                       const Divider(),
                         const SizedBox(
                           height: 10,
                         ),
@@ -421,7 +421,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                           color:
-                                              Color(0xFF1C1939).withOpacity(.8),
+                                            const  Color(0xFF1C1939).withOpacity(.8),
                                         ),
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -476,7 +476,7 @@ class _DashBoaardState extends State<DashBoaard> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Divider(),
+                      const  Divider(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -543,7 +543,7 @@ class _DashBoaardState extends State<DashBoaard> {
                       children: [
                         Image.asset('images/Charachter add.png'),
                         Padding(
-                          padding: EdgeInsets.all(20),
+                          padding:const EdgeInsets.all(20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -568,7 +568,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                   textStyle: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
-                                    color: Color(0xFF1C1939).withOpacity(.8),
+                                    color:const Color(0xFF1C1939).withOpacity(.8),
                                   ),
                                 ),
                                 overflow: TextOverflow.ellipsis,

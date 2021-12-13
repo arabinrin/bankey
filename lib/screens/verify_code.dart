@@ -1,7 +1,4 @@
-import 'package:bankey/screens/created.dart';
-import 'package:bankey/screens/summary.dart';
 import 'package:bankey/utils/constant.dart';
-import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -87,7 +84,6 @@ class _VerifyState extends State<Verify> {
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldStyle: FieldStyle.underline,
                 onCompleted: (pin) {
-                  print("Completed: " + pin);
                 },
               ),
               const SizedBox(

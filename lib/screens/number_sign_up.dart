@@ -3,7 +3,6 @@ import 'package:bankey/screens/verify_code.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/button.dart';
-import 'package:bankey/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +57,7 @@ class _NumberLogState extends State<NumberLog> {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 FadeTransition(
               opacity: animation,
-              child: Create(),
+              child:const Create(),
             ),
           ),
         );

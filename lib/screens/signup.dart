@@ -124,7 +124,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                      GestureDetector(
                       onTap: () {
-                        changeScreen(context, NumberLog());
+                        changeScreen(context,const NumberLog());
                       },
                       child:Button(
                       title: 'Sign up with Phone Number',
@@ -157,7 +157,7 @@ class _SignUpState extends State<SignUp> {
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
                                         FadeTransition(
-                                            opacity: animation, child: Login()),
+                                            opacity: animation, child:const Login()),
                               ),
                             );
                           },

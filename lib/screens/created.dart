@@ -1,4 +1,3 @@
-import 'package:bankey/screens/login.dart';
 import 'package:bankey/screens/summary.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';

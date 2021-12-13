@@ -139,7 +139,7 @@ class _LoginState extends State<Login> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          changeScreen(context, SignUp());
+                          changeScreen(context,const SignUp());
                         },
                         child: Text(
                           ' - Sign Up',

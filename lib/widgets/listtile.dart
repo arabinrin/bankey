@@ -14,7 +14,7 @@ class ListTiling extends StatelessWidget {
         size: 25,
         color: Colors.white
       ),
-      title: Text(text,style: GoogleFonts.dmSans( textStyle: TextStyle(
+      title: Text(text,style: GoogleFonts.dmSans( textStyle:const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
                     color: Colors.white,

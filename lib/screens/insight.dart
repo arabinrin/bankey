@@ -2,7 +2,6 @@ import 'package:bankey/model/account.dart';
 import 'package:bankey/model/transaction.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/widgets/category.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +15,7 @@ class Insight extends StatefulWidget {
 }
 
 class _InsightState extends State<Insight> {
-  final formatCurrency = new NumberFormat.simpleCurrency(decimalDigits: 0);
+  final formatCurrency =  NumberFormat.simpleCurrency(decimalDigits: 0);
   final List<Color> gradientColors = [
     const Color(0xFF5E52D2),
     const Color(0xFFB697F9),
@@ -43,7 +42,7 @@ class _InsightState extends State<Insight> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      icon: Icon(
+                      icon:const Icon(
                         Icons.arrow_back_ios,
                         size: 25,
                       )),
@@ -110,8 +109,8 @@ class _InsightState extends State<Insight> {
                         minY: 0,
                         maxY: 6,
                         borderData: FlBorderData(show: false),
-                        titlesData: FlTitlesData(show: false),
-                        gridData: FlGridData(
+                        titlesData:const FlTitlesData(show: false),
+                        gridData:const FlGridData(
                           show: false,
                         ),
                         lineBarsData: [
@@ -151,17 +150,17 @@ class _InsightState extends State<Insight> {
                         maxY: 6,
                         borderData: FlBorderData(
                             show: true,
-                            border: Border(
+                            border:const Border(
                                 right:
                                     BorderSide(color: Colors.white, width: 3))),
-                        titlesData: FlTitlesData(show: false),
-                        gridData: FlGridData(
+                        titlesData:const FlTitlesData(show: false),
+                        gridData:const FlGridData(
                           show: false,
                         ),
                         lineBarsData: [
                           LineChartBarData(
                             barWidth: 2,
-                            dotData: FlDotData(show: false),
+                            dotData:const FlDotData(show: false),
                             belowBarData: BarAreaData(
                               show: true,
                               gradientColorStops: [6, 9],
@@ -199,7 +198,7 @@ class _InsightState extends State<Insight> {
                       ),
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                           const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -212,11 +211,11 @@ class _InsightState extends State<Insight> {
                                     textStyle: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF1C1939).withOpacity(.8),
+                                      color:const Color(0xFF1C1939).withOpacity(.8),
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                               const SizedBox(
                                   height: 5,
                                 ),
                                 Row(
@@ -231,7 +230,7 @@ class _InsightState extends State<Insight> {
                                           shape: BoxShape.circle,
                                         ),
                                       ),
-                                      SizedBox(
+                                    const  SizedBox(
                                         width: 4,
                                       ),
                                       Text(
@@ -260,7 +259,7 @@ class _InsightState extends State<Insight> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                              const  SizedBox(
                                   height: 5,
                                 ),
                                 Row(children: [
@@ -272,7 +271,7 @@ class _InsightState extends State<Insight> {
                                       shape: BoxShape.circle,
                                     ),
                                   ),
-                                  SizedBox(
+                                 const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
@@ -319,23 +318,23 @@ class _InsightState extends State<Insight> {
               height: 290,
               child: ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics:const NeverScrollableScrollPhysics(),
                 separatorBuilder: (BuildContext context, i) => Divider(
                   thickness: 1,
-                  color: Color(0xFFD2D1D7).withOpacity(.8),
+                  color:const Color(0xFFD2D1D7).withOpacity(.8),
                 ),
                 itemCount: tansactionModel.length,
                 itemBuilder: (BuildContext context, int i) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.all(8),
-                              padding: EdgeInsets.all(8),
+                              margin:const EdgeInsets.all(8),
+                              padding:const EdgeInsets.all(8),
                               height: 45,
                               width: 45,
                               decoration: BoxDecoration(
@@ -348,7 +347,7 @@ class _InsightState extends State<Insight> {
                                 width: 28,
                               ),
                             ),
-                            SizedBox(
+                          const  SizedBox(
                               width: 20,
                             ),
                             Column(
@@ -385,7 +384,7 @@ class _InsightState extends State<Insight> {
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            '${formatCurrency.format(tansactionModel[i].amount)}',
+                            formatCurrency.format(tansactionModel[i].amount),
                             style: GoogleFonts.dmSans(
                               textStyle: TextStyle(
                                 fontSize: 18,
@@ -403,7 +402,7 @@ class _InsightState extends State<Insight> {
               ),
             ),
           
-            CategoryTile(),
+           const  CategoryTile(),
           ],
         ),
       ),

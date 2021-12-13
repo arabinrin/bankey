@@ -15,7 +15,7 @@ class BudgetListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-        separatorBuilder: (BuildContext context, index) => Divider(
+        separatorBuilder: (BuildContext context, index) =>const Divider(
               height: 10,
             ),
         itemCount: budgetItem.length,
@@ -24,7 +24,7 @@ class BudgetListView extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10)),
-            padding: EdgeInsets.all(12),
+            padding:const EdgeInsets.all(12),
             height: 200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,7 +40,7 @@ class BudgetListView extends StatelessWidget {
                           width: 30,
                           // color: kGreen,
                         ),
-                        SizedBox(
+                      const  SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -100,7 +100,7 @@ class BudgetListView extends StatelessWidget {
                           center: Text(
                             '${budgetItem[index].point}',
                             style: GoogleFonts.dmSans(
-                              textStyle: TextStyle(
+                              textStyle:const TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
@@ -138,8 +138,8 @@ class BudgetListView extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 30,),
-                Divider(),
+               const SizedBox(height: 30,),
+              const  Divider(),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Row(
@@ -148,7 +148,7 @@ class BudgetListView extends StatelessWidget {
                       Text(
                         'Your ${budgetItem[index].item} spending is still on track',
                         style: GoogleFonts.dmSans(
-                          textStyle: TextStyle(
+                          textStyle:const TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w700,
                             color: Color(0xFF9EA6BE),

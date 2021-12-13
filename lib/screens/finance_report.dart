@@ -120,7 +120,7 @@ class _FinancialReportState extends State<FinancialReport> {
             Container(
               child: ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics:const NeverScrollableScrollPhysics(),
                 separatorBuilder: (BuildContext context, i) => Divider(
                   color: Colors.transparent,
                 ),
@@ -131,10 +131,10 @@ class _FinancialReportState extends State<FinancialReport> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    margin: EdgeInsets.symmetric(
+                    margin:const EdgeInsets.symmetric(
                       horizontal: 20,
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    padding:const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -151,7 +151,7 @@ class _FinancialReportState extends State<FinancialReport> {
                               child: Text(
                                 '+${recommendModel[i].count}',
                                 style: GoogleFonts.dmSans(
-                                  textStyle: TextStyle(
+                                  textStyle:const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
@@ -168,7 +168,7 @@ class _FinancialReportState extends State<FinancialReport> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${recommendModel[i].category}',
+                                  recommendModel[i].category,
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
                                       fontSize: 16,
@@ -182,7 +182,7 @@ class _FinancialReportState extends State<FinancialReport> {
                                     vertical: 10,
                                   ),
                                   child: Text(
-                                    '${recommendModel[i].recommedation}',
+                                    recommendModel[i].recommedation,
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
                                         fontSize: 14,
