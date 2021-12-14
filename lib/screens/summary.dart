@@ -24,7 +24,7 @@ class Summary extends StatefulWidget {
 class _SummaryState extends State<Summary> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  final formatCurrency =  NumberFormat.simpleCurrency();
+  final formatCurrency =  NumberFormat.simpleCurrency(decimalDigits: 0);
 
   final _auth = FirebaseAuth.instance;
 
@@ -32,14 +32,14 @@ class _SummaryState extends State<Summary> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer:const DrawerWidget(),
+      drawer: const DrawerWidget(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-            const  SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -49,7 +49,7 @@ class _SummaryState extends State<Summary> {
                     onPressed: () {
                       _scaffoldKey.currentState!.openDrawer();
                     },
-                    icon:const Icon(Icons.menu_rounded),
+                    icon: const Icon(Icons.menu_rounded),
                   ),
                   Text(
                     'Summary',
@@ -111,7 +111,7 @@ class _SummaryState extends State<Summary> {
                   textStyle: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
-                    color:const Color(0xFF1C1939).withOpacity(.8),
+                    color: const Color(0xFF1C1939).withOpacity(.8),
                   ),
                 ),
                 textAlign: TextAlign.center,
@@ -121,7 +121,7 @@ class _SummaryState extends State<Summary> {
               ),
               GestureDetector(
                 onTap: () {
-                  changeScreen(context, DeterminatePage());
+                  // changeScreen(context, Pie());
                 },
                 child: Button(title: 'Great', color: kprimarycolor),
               ),
@@ -129,7 +129,7 @@ class _SummaryState extends State<Summary> {
                 height: 15,
               ),
               Container(
-                color:const Color(0xFFF9F9FB),
+                color: const Color(0xFFF9F9FB),
                 child: Column(
                   children: [
                     Row(
@@ -153,7 +153,7 @@ class _SummaryState extends State<Summary> {
                     const SizedBox(
                       height: 10,
                     ),
-                  const  CategoryTile(),
+                    const CategoryTile(),
                   ],
                 ),
               ),

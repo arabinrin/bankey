@@ -1,6 +1,9 @@
 import 'package:bankey/screens/budget.dart';
 import 'package:bankey/screens/dashboard.dart';
+import 'package:bankey/screens/expenses.dart';
 import 'package:bankey/screens/finance_report.dart';
+import 'package:bankey/screens/insight.dart';
+import 'package:bankey/screens/transfer.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/listtile.dart';
@@ -15,7 +18,7 @@ class DrawerWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: kprimarycolor,
-          borderRadius:const BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
         ),
         padding: const EdgeInsets.all(8.0),
@@ -26,19 +29,34 @@ class DrawerWidget extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context,const Budget());
+                  changeScreen(context, const Budget());
                 },
                 child: ListTiling('images/house.png', 'Budget')),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context,const DashBoaard());
+                  changeScreen(context, const DashBoaard());
                 },
                 child: ListTiling('images/house.png', 'Dashboard')),
             GestureDetector(
                 onTap: () {
-                  changeScreen(context,const FinancialReport());
+                  changeScreen(context, const FinancialReport());
                 },
                 child: ListTiling('images/house.png', 'FInancial Report')),
+            GestureDetector(
+                onTap: () {
+                  changeScreen(context, const Expenses());
+                },
+                child: ListTiling('images/house.png', 'Expemses')),
+            GestureDetector(
+                onTap: () {
+                  changeScreen(context, const Insight());
+                },
+                child: ListTiling('images/house.png', 'Insight')),
+            GestureDetector(
+                onTap: () {
+                  changeScreen(context, const Transfer());
+                },
+                child: ListTiling('images/house.png', 'Transfer')),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:bankey/screens/finance_report.dart';
 import 'package:bankey/screens/insight.dart';
 import 'package:bankey/screens/passcode.dart';
+import 'package:bankey/screens/transfer.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/activities.dart';
@@ -276,10 +277,14 @@ class _DashBoaardState extends State<DashBoaard> {
                   ),
                   Row(
                     children: [
-                      ActivityCard(
+                        InkWell(
+                        onTap: () {
+                          changeScreen(context,const Transfer());
+                        },
+                        child:ActivityCard(
                         img: 'images/send.png',
                         name: 'Transfer',
-                      ),
+                      ),),
                       InkWell(
                          onTap: () {
                           changeScreen(context, DemoPage());

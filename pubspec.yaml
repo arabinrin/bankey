@@ -54,6 +54,7 @@ dependencies:
   local_auth:
   fl_chart:
   passcode_screen: 
+  charts_flutter:
 
 
 

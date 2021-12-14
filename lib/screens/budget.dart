@@ -20,7 +20,7 @@ class Budget extends StatefulWidget {
 class _BudgetState extends State<Budget> {
   @override
   Widget build(BuildContext context) {
-    final formatCurrency = new NumberFormat.simpleCurrency();
+  final formatCurrency =  NumberFormat.simpleCurrency(decimalDigits: 0);
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;

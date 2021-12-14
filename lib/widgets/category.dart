@@ -18,14 +18,16 @@ class CategoryTile extends StatefulWidget {
 class _CategoryTileState extends State<CategoryTile> {
   Timer? _timer;
   double progressValue = 0;
+  int? ite;
   double secondaryProgressValue = 0;
   // ignore: sort_constructors_first
-  _DeterminatePageState() {
+  _CategoryTileState() {
     _timer = Timer.periodic(const Duration(milliseconds: 100), (Timer _timer) {
       setState(() {
         progressValue++;
+
         secondaryProgressValue = secondaryProgressValue + 2;
-        if (progressValue == 100) {
+        if (progressValue == categoryModel[1].price/100) {
           _timer.cancel();
         }
         if (secondaryProgressValue > 100) {
@@ -39,20 +41,22 @@ class _CategoryTileState extends State<CategoryTile> {
     _timer!.cancel();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
         physics: ScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: (2 / 3),
         ),
         itemCount: categoryModel.length,
         itemBuilder: (BuildContext context, int i) {
+          ite = i;
           return Container(
-            margin:const EdgeInsets.all(10),
-            decoration:const BoxDecoration(color: Colors.white),
+            margin: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -74,7 +78,7 @@ class _CategoryTileState extends State<CategoryTile> {
                         ),
                         pointers: <GaugePointer>[
                           RangePointer(
-                              value: progressValue,
+                              value:  categoryModel[i].target/10,
                               width: 0.3,
                               sizeUnit: GaugeSizeUnit.factor,
                               enableAnimation: true,
@@ -139,7 +143,8 @@ class _CategoryTileState extends State<CategoryTile> {
                   height: 10,
                 ),
                 Container(
-                    padding:const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(5),
@@ -159,6 +164,4 @@ class _CategoryTileState extends State<CategoryTile> {
           );
         });
   }
-
-  
 }
