@@ -8,6 +8,8 @@ import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/listtile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -18,14 +20,14 @@ class DrawerWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: kprimarycolor,
-          borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+          borderRadius:  BorderRadius.only(
+              topRight: Radius.circular(20.r), bottomRight: Radius.circular(20.r)),
         ),
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
-            const SizedBox(
-              height: 80,
+             SizedBox(
+              height: 80.h,
             ),
             GestureDetector(
                 onTap: () {
@@ -46,7 +48,7 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   changeScreen(context, const Expenses());
                 },
-                child: ListTiling('images/house.png', 'Expemses')),
+                child: ListTiling('images/house.png', 'Expenses')),
             GestureDetector(
                 onTap: () {
                   changeScreen(context, const Insight());

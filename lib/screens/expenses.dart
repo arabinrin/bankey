@@ -4,6 +4,9 @@ import 'package:bankey/widgets/expenses_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
 
 class Expenses extends StatefulWidget {
   const Expenses({Key? key}) : super(key: key);
@@ -16,14 +19,14 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height.h;
+    final width = MediaQuery.of(context).size.width.w;
     return Scaffold(
       backgroundColor: whiteback,
       body: SingleChildScrollView(
         child: Column(children: [
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: 30.h,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -41,29 +44,29 @@ class _ExpensesState extends State<Expenses> {
                   'Budget',
                   style: GoogleFonts.dmSans(
                     textStyle:  TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
                       color: kBlack,
                       letterSpacing: .4,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
+                 SizedBox(
+                  width: 20.w,
                 ),
               ],
             ),
           ),
           Container(
               margin: EdgeInsets.all(20),
-              height: 300,
-              width: 300,
+              height: 300..h,
+              width: 300.w,
               child: Pie()),
           Container(
             width: width * .8,
             height: height * .6,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               color: const Color(0xFFF9F9FB),
             ),
             child: ExpensesListView(width: width),

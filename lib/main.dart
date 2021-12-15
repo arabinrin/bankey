@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,12 +21,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          scaffoldBackgroundColor: kprimarycolor, fontFamily: 'DM sans'),
-      home: Initializer(),
+    
+    return ScreenUtilInit(
+      designSize: Size(411.428, 866.285),
+      builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            scaffoldBackgroundColor: kprimarycolor, fontFamily: 'DM sans'),
+        home: Initializer(),
+      ),
     );
   }
 }

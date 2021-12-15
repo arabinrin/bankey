@@ -6,6 +6,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class Insight extends StatefulWidget {
   const Insight({Key? key}) : super(key: key);
@@ -30,8 +32,8 @@ class _InsightState extends State<Insight> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             Padding(
               padding: const EdgeInsets.all(20),
@@ -50,7 +52,7 @@ class _InsightState extends State<Insight> {
                     'Set Budget',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         color: kprimarycolor,
                       ),
@@ -65,7 +67,7 @@ class _InsightState extends State<Insight> {
                 'Guy your balance is ${formatCurrency.format(accountModel[0].balance)} o',
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
-                    fontSize: 22,
+                    fontSize: 22.sp,
                     fontWeight: FontWeight.w700,
                     color: kBlack,
                   ),
@@ -79,7 +81,7 @@ class _InsightState extends State<Insight> {
                 'Last month, you spent ${formatCurrency.format(accountModel[0].previous)} ',
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w400,
                     color: Colors.black.withOpacity(.7),
                   ),
@@ -87,20 +89,20 @@ class _InsightState extends State<Insight> {
                 textAlign: TextAlign.start,
               ),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             Container(
               alignment: Alignment.topLeft,
-              height: 300,
+              height: 300.h,
               width: width,
               child: Stack(
                 children: [
                   Container(
-                    height: 320,
+                    height: 320.h,
                   ),
                   Container(
-                    height: 180,
+                    height: 180.h,
                     width: width,
                     child: LineChart(
                       LineChartData(
@@ -109,13 +111,13 @@ class _InsightState extends State<Insight> {
                         minY: 0,
                         maxY: 6,
                         borderData: FlBorderData(show: false),
-                        titlesData:const FlTitlesData(show: false),
-                        gridData:const FlGridData(
+                        titlesData: FlTitlesData(show: false),
+                        gridData: FlGridData(
                           show: false,
                         ),
                         lineBarsData: [
-                          const LineChartBarData(
-                            barWidth: 2,
+                           LineChartBarData(
+                            barWidth: 2.w,
                             dotData: FlDotData(show: false),
                             belowBarData: BarAreaData(
                               show: true,
@@ -140,7 +142,7 @@ class _InsightState extends State<Insight> {
                     ),
                   ),
                   Container(
-                    height: 180,
+                    height: 180.h,
                     width: width,
                     child: LineChart(
                       LineChartData(
@@ -153,14 +155,14 @@ class _InsightState extends State<Insight> {
                             border:const Border(
                                 right:
                                     BorderSide(color: Colors.white, width: 3))),
-                        titlesData:const FlTitlesData(show: false),
-                        gridData:const FlGridData(
+                        titlesData: FlTitlesData(show: false),
+                        gridData: FlGridData(
                           show: false,
                         ),
                         lineBarsData: [
                           LineChartBarData(
                             barWidth: 2,
-                            dotData:const FlDotData(show: false),
+                            dotData: FlDotData(show: false),
                             belowBarData: BarAreaData(
                               show: true,
                               gradientColorStops: [6, 9],
@@ -187,10 +189,10 @@ class _InsightState extends State<Insight> {
                     ),
                   ),
                   Positioned(
-                    top: 160,
+                    top: 160.h,
                     left: width * .1,
                     child: Container(
-                      height: 110,
+                      height: 110.h,
                       width: width * .8,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -209,35 +211,35 @@ class _InsightState extends State<Insight> {
                                   'Spent',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 13.h,
                                       fontWeight: FontWeight.w400,
                                       color:const Color(0xFF1C1939).withOpacity(.8),
                                     ),
                                   ),
                                 ),
-                               const SizedBox(
-                                  height: 5,
+                                SizedBox(
+                                  height: 5.h,
                                 ),
                                 Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
-                                        height: 10,
-                                        width: 10,
+                                        height: 10.h,
+                                        width: 10.w,
                                         decoration: const BoxDecoration(
                                           color: Colors.red,
                                           shape: BoxShape.circle,
                                         ),
                                       ),
-                                    const  SizedBox(
-                                        width: 4,
+                                      SizedBox(
+                                        width: 4.w,
                                       ),
                                       Text(
                                         formatCurrency.format(1460),
                                         style: GoogleFonts.dmSans(
                                           textStyle: TextStyle(
-                                            fontSize: 24,
+                                            fontSize: 24.sp,
                                             fontWeight: FontWeight.bold,
                                             color: kBlack,
                                           ),
@@ -253,32 +255,32 @@ class _InsightState extends State<Insight> {
                                   'Earned',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xFF1C1939).withOpacity(.8),
                                     ),
                                   ),
                                 ),
-                              const  SizedBox(
-                                  height: 5,
+                                SizedBox(
+                                  height: 5.h,
                                 ),
                                 Row(children: [
                                   Container(
-                                    height: 10,
-                                    width: 10,
+                                    height: 10.h,
+                                    width: 10.w,
                                     decoration: const BoxDecoration(
                                       color: Color(0xFF967AF3),
                                       shape: BoxShape.circle,
                                     ),
                                   ),
-                                 const SizedBox(
-                                    width: 4,
+                                  SizedBox(
+                                    width: 4.w,
                                   ),
                                   Text(
                                     formatCurrency.format(2730),
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 24.sp,
                                         fontWeight: FontWeight.bold,
                                         color: kBlack,
                                       ),
@@ -303,7 +305,7 @@ class _InsightState extends State<Insight> {
                     'Top Transaction',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                         color: kBlack,
                       ),
@@ -315,7 +317,7 @@ class _InsightState extends State<Insight> {
             ),
             Container(
               alignment: Alignment.center,
-              height: 290,
+              height: 290.h,
               child: ListView.separated(
                 shrinkWrap: true,
                 physics:const NeverScrollableScrollPhysics(),
@@ -335,20 +337,20 @@ class _InsightState extends State<Insight> {
                             Container(
                               margin:const EdgeInsets.all(8),
                               padding:const EdgeInsets.all(8),
-                              height: 45,
-                              width: 45,
+                              height: 45.h,
+                              width: 45.w,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white,
                               ),
                               child: Image.asset(
                                 tansactionModel[i].img,
-                                height: 28,
-                                width: 28,
+                                height: 28.h,
+                                width: 28.w,
                               ),
                             ),
-                          const  SizedBox(
-                              width: 20,
+                            SizedBox(
+                              width: 20.w,
                             ),
                             Column(
                               children: [
@@ -358,7 +360,7 @@ class _InsightState extends State<Insight> {
                                     tansactionModel[i].name,
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w700,
                                         color: kBlack,
                                       ),
@@ -370,7 +372,7 @@ class _InsightState extends State<Insight> {
                                   '${tansactionModel[i].count} transactions',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.black.withOpacity(.7),
                                     ),
@@ -387,7 +389,7 @@ class _InsightState extends State<Insight> {
                             formatCurrency.format(tansactionModel[i].amount),
                             style: GoogleFonts.dmSans(
                               textStyle: TextStyle(
-                                fontSize: 18,
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                                 color: kBlack,
                               ),

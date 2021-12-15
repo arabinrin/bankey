@@ -1,6 +1,8 @@
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ListTiling extends StatelessWidget {
   String image;
   String text;
@@ -14,8 +16,8 @@ class ListTiling extends StatelessWidget {
         size: 25,
         color: Colors.white
       ),
-      title: Text(text,style: GoogleFonts.dmSans( textStyle:const TextStyle(
-                    fontSize: 18,
+      title: Text(text,style: GoogleFonts.dmSans( textStyle: TextStyle(
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),

@@ -2,6 +2,8 @@ import 'package:bankey/model/finance_recommend.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class FinancialReport extends StatefulWidget {
   const FinancialReport({Key? key}) : super(key: key);
@@ -13,8 +15,8 @@ class FinancialReport extends StatefulWidget {
 class _FinancialReportState extends State<FinancialReport> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height.h;
+    final width = MediaQuery.of(context).size.width.w;
     return Scaffold(
       backgroundColor: whiteback,
       body: SingleChildScrollView(
@@ -31,17 +33,17 @@ class _FinancialReportState extends State<FinancialReport> {
                 //   fit: BoxFit.contain,
                 // ),
                 color: kprimarycolor,
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
+                borderRadius:  BorderRadius.only(
+                    bottomLeft: Radius.circular(20.r),
+                    bottomRight: Radius.circular(20.r)),
               ),
               child: Stack(
                 children: [
                   Center(
                     child: Image.asset(
                       'images/finscore.png',
-                      height: 230,
-                      width: 260,
+                      height: 230.h,
+                      width: 260.w,
                     ),
                   ),
                   Center(
@@ -50,13 +52,13 @@ class _FinancialReportState extends State<FinancialReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 50, horizontal: 10),
+                          padding:  EdgeInsets.symmetric(
+                              vertical: 50.h, horizontal: 10.w),
                           child: Text(
                             'Financial Score',
                             style: GoogleFonts.dmSans(
-                              textStyle: const TextStyle(
-                                fontSize: 20,
+                              textStyle:  TextStyle(
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                                 letterSpacing: .4,
@@ -71,8 +73,8 @@ class _FinancialReportState extends State<FinancialReport> {
                               Text(
                                 'It can be better!',
                                 style: GoogleFonts.dmSans(
-                                  textStyle: const TextStyle(
-                                    fontSize: 20,
+                                  textStyle:  TextStyle(
+                                    fontSize: 20.sp,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
                                     letterSpacing: .4,
@@ -82,8 +84,8 @@ class _FinancialReportState extends State<FinancialReport> {
                               Text(
                                 'Below are some recommendtions',
                                 style: GoogleFonts.dmSans(
-                                  textStyle: const TextStyle(
-                                    fontSize: 18,
+                                  textStyle:  TextStyle(
+                                    fontSize: 18.sp,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
                                   ),
@@ -107,7 +109,7 @@ class _FinancialReportState extends State<FinancialReport> {
                     'Recommedation',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                         color: kBlack,
                         letterSpacing: .4,
@@ -131,28 +133,28 @@ class _FinancialReportState extends State<FinancialReport> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    margin:const EdgeInsets.symmetric(
-                      horizontal: 20,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 20.w,
                     ),
-                    padding:const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Container(
-                            height: 50,
-                            width: 50,
+                            height: 50.h,
+                            width: 50.w,
                             decoration: BoxDecoration(
                               color: kprimarycolor,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
                             child: Center(
                               child: Text(
                                 '+${recommendModel[i].count}',
                                 style: GoogleFonts.dmSans(
-                                  textStyle:const TextStyle(
-                                    fontSize: 16,
+                                  textStyle: TextStyle(
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
                                   ),
@@ -163,7 +165,7 @@ class _FinancialReportState extends State<FinancialReport> {
                         ),
                         Container(
                           width: width * .6,
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          padding:  EdgeInsets.symmetric(horizontal: 10.0.w),
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -171,21 +173,21 @@ class _FinancialReportState extends State<FinancialReport> {
                                   recommendModel[i].category,
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.grey[500],
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
+                                  padding:  EdgeInsets.symmetric(
+                                    vertical: 10.h,
                                   ),
                                   child: Text(
                                     recommendModel[i].recommedation,
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontWeight: FontWeight.w700,
                                         color: kBlack,
                                       ),
@@ -199,7 +201,7 @@ class _FinancialReportState extends State<FinancialReport> {
                                   'More details',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontWeight: FontWeight.w700,
                                       color: kprimarycolor,
                                     ),

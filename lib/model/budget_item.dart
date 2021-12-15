@@ -33,7 +33,7 @@ List<BudgetItemModel> budgetItem = [
       daily: 20,
       transactions: 4),
   BudgetItemModel(
-      img: 'image/medical.png',
+      img: 'images/medical.png',
       target: 900,
       point: 530,
       item: 'Medical allowance',

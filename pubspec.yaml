@@ -39,13 +39,14 @@ dependencies:
   provider:
   flutter_svg: 
   cloud_firestore: 
-  firebase_core :
-  firebase_auth:
+  firebase_core : 
+
+  firebase_auth: ^3.3.0
   transparent_image:
   flutter_spinkit: ^4.1.2
   flutter_typeahead: ^1.8.1
-  uuid: ^2.0.4
-  intl_phone_number_input:
+  uuid:
+  intl_phone_number_input:  ^0.7.0+1
   otp_text_field: 
   syncfusion_flutter_gauges:
   carousel_slider:
@@ -55,6 +56,9 @@ dependencies:
   fl_chart:
   passcode_screen: 
   charts_flutter:
+  flutter_screenutil: 
+
+  
 
 
 

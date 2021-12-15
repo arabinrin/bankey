@@ -3,6 +3,8 @@ import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class Create extends StatelessWidget {
@@ -17,35 +19,35 @@ class Create extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             Image.asset(
               "images/Thumbs Up.png",
-              height: 235,
-              width: 260,
+              height: 235.h,
+              width: 260.w,
             ),
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             Text(
               'Account Created!',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
                   color: kBlack,
-                  fontSize: 32,
+                  fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             Text(
               'Your account has been created successfully. \n Press continue to start using app.',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 15,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black.withOpacity(.8),
                   letterSpacing: .4,
@@ -67,8 +69,8 @@ class Create extends StatelessWidget {
                 color: kprimarycolor,
               ),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             RichText(
               textAlign: TextAlign.center,
@@ -77,7 +79,7 @@ class Create extends StatelessWidget {
                   text: 'By clicking start, you agree to our',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.black.withOpacity(.8),
                       letterSpacing: .4,
@@ -89,7 +91,7 @@ class Create extends StatelessWidget {
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: kprimarycolor,
                       letterSpacing: .4,
@@ -100,7 +102,7 @@ class Create extends StatelessWidget {
                   text: ' and',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.black.withOpacity(.8),
                       letterSpacing: .4,
@@ -112,7 +114,7 @@ class Create extends StatelessWidget {
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: kprimarycolor,
                       letterSpacing: .4,

@@ -3,6 +3,7 @@ import 'package:bankey/screens/verify_code.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/button.dart';
+import 'package:bankey/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 enum MobileVerificationState {
   SHOW_MOBILE_FORM_STATE,
@@ -49,7 +52,7 @@ class _NumberLogState extends State<NumberLog> {
         showLoading = false;
       });
       if (authCredential.user != null) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           PageRouteBuilder(
             transitionDuration: const Duration(milliseconds: 500),
@@ -57,7 +60,7 @@ class _NumberLogState extends State<NumberLog> {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 FadeTransition(
               opacity: animation,
-              child:const Create(),
+              child: Create(),
             ),
           ),
         );
@@ -67,7 +70,7 @@ class _NumberLogState extends State<NumberLog> {
         showLoading = true;
       });
       _scaffoldkey.currentState!
-          .showSnackBar(SnackBar(content: Text(e.message)));
+          .showSnackBar(SnackBar(content: Text(e.message.toString())));
     }
   }
 
@@ -79,20 +82,20 @@ class _NumberLogState extends State<NumberLog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             Text(
               'Verify Account!',
               style: GoogleFonts.dmSans(
-                textStyle: const TextStyle(
-                  fontSize: 32,
+                textStyle:  TextStyle(
+                  fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: 25.h,
             ),
             RichText(
               textAlign: TextAlign.center,
@@ -102,7 +105,7 @@ class _NumberLogState extends State<NumberLog> {
                     text: 'Enter 6-digit Code code we have sent to ',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
                         color: Colors.black.withOpacity(.8),
                         letterSpacing: .4,
@@ -114,7 +117,7 @@ class _NumberLogState extends State<NumberLog> {
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
                         decoration: TextDecoration.underline,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: kprimarycolor,
                         letterSpacing: .4,
@@ -130,7 +133,7 @@ class _NumberLogState extends State<NumberLog> {
             OTPTextField(
               length: 6,
               width: MediaQuery.of(context).size.width * 8,
-              fieldWidth: 40,
+              fieldWidth: 40.w,
               style: GoogleFonts.dmSans(
                 textStyle: const TextStyle(
                   fontSize: 30,
@@ -145,14 +148,14 @@ class _NumberLogState extends State<NumberLog> {
                 otp = pin;
               },
             ),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height: 30.h,
             ),
             Text(
               'Didn’t  received the code?',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 15,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black.withOpacity(.8),
                   letterSpacing: .4,
@@ -160,8 +163,8 @@ class _NumberLogState extends State<NumberLog> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             GestureDetector(
               onTap: () {
@@ -172,7 +175,7 @@ class _NumberLogState extends State<NumberLog> {
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.bold,
                     color: kprimarycolor,
                     letterSpacing: .4,
@@ -180,8 +183,8 @@ class _NumberLogState extends State<NumberLog> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             GestureDetector(
               onTap: () async {
@@ -190,7 +193,7 @@ class _NumberLogState extends State<NumberLog> {
                 signInWithPhoneAuthCredential(phoneAuthCredential);
               },
               child: Container(
-                height: 60,
+                height: 60.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: kprimarycolor,
@@ -199,9 +202,9 @@ class _NumberLogState extends State<NumberLog> {
                   child: Text(
                     'Proceed'.toString(),
                     style: GoogleFonts.dmSans(
-                      textStyle: const TextStyle(
+                      textStyle:  TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -219,7 +222,7 @@ class _NumberLogState extends State<NumberLog> {
                   text: 'By clicking start, you agree to our',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.black.withOpacity(.8),
                       letterSpacing: .4,
@@ -231,7 +234,7 @@ class _NumberLogState extends State<NumberLog> {
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: kprimarycolor,
                       letterSpacing: .4,
@@ -242,7 +245,7 @@ class _NumberLogState extends State<NumberLog> {
                   text: ' and',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.black.withOpacity(.8),
                       letterSpacing: .4,
@@ -254,7 +257,7 @@ class _NumberLogState extends State<NumberLog> {
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: kprimarycolor,
                       letterSpacing: .4,
@@ -276,26 +279,26 @@ class _NumberLogState extends State<NumberLog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             Text(
               'Mobile Number',
               style: GoogleFonts.dmSans(
-                textStyle: const TextStyle(
-                  fontSize: 32,
+                textStyle:  TextStyle(
+                  fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: 25.h,
             ),
             Text(
               'Please enter your phone number. We will send you 4-digit code to verify your account.',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 15,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black.withOpacity(.8),
                   letterSpacing: .4,
@@ -305,15 +308,15 @@ class _NumberLogState extends State<NumberLog> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-            const SizedBox(
-              height: 50,
+             SizedBox(
+              height: 50.h,
             ),
             Form(
               key: formKey,
               child: InternationalPhoneNumberInput(
                 hintText: '+00 000 0000',
                 onInputChanged: (PhoneNumber number) {
-                  phone = number.phoneNumber;
+                  phone = number.phoneNumber.toString();
                   print(" see ${phone}");
                 },
                 onInputValidated: (bool value) {},
@@ -325,8 +328,8 @@ class _NumberLogState extends State<NumberLog> {
                 // selectorTextStyle: TextStyle(color: Colors.black),
                 initialValue: number,
                 textFieldController: phoneController,
-                textStyle: const TextStyle(
-                  fontSize: 16,
+                textStyle:  TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                 ),
                 searchBoxDecoration:
@@ -336,7 +339,7 @@ class _NumberLogState extends State<NumberLog> {
                 keyboardType: const TextInputType.numberWithOptions(
                     signed: true, decimal: true),
                 inputBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
                 onSaved: (PhoneNumber number) {
                   print('On Saved: ${phoneController.text}');
@@ -361,7 +364,7 @@ class _NumberLogState extends State<NumberLog> {
                   },
                   verificationFailed: (verificationFailed) async {
                     _scaffoldkey.currentState!.showSnackBar(
-                        SnackBar(content: Text(verificationFailed.message)));
+                        SnackBar(content: Text(verificationFailed.message.toString())));
                   },
                   codeSent: (verificationId, resendingToken) async {
                     setState(() {
@@ -389,18 +392,18 @@ class _NumberLogState extends State<NumberLog> {
                 );
               },
               child: Container(
-                height: 60,
+                height: 60.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                   color: kprimarycolor,
                 ),
                 child: Center(
                   child: Text(
                     'Send Code'.toString(),
                     style: GoogleFonts.dmSans(
-                      textStyle: const TextStyle(
+                      textStyle:  TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                       ),
                     ),

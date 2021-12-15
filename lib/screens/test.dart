@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class Pie extends StatefulWidget {
   @override
@@ -53,7 +55,7 @@ class _PieState extends State<Pie> {
                     formatCurrency.format(1753),
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.bold,
                         color: kBlack,
                       ),

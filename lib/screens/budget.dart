@@ -1,4 +1,6 @@
 import 'package:bankey/model/budget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:bankey/model/budget_item.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/widgets/budget_listview.dart';
@@ -22,8 +24,8 @@ class _BudgetState extends State<Budget> {
   Widget build(BuildContext context) {
   final formatCurrency =  NumberFormat.simpleCurrency(decimalDigits: 0);
 
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height.h;
+    final width = MediaQuery.of(context).size.width.w;
     final GlobalKey<ScaffoldState> _scaffoldKey =
         new GlobalKey<ScaffoldState>();
     int _current = 0;
@@ -43,12 +45,12 @@ class _BudgetState extends State<Budget> {
                 decoration: BoxDecoration(
                   color: kprimarycolor,
                   borderRadius: BorderRadius.vertical(
-                      bottom: Radius.elliptical(width, 100.0)),
+                      bottom: Radius.elliptical(width, 100.0.w)),
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 30,
+                     SizedBox(
+                      height: 30.h,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -67,8 +69,8 @@ class _BudgetState extends State<Budget> {
                           Text(
                             'Budget',
                             style: GoogleFonts.dmSans(
-                              textStyle: const TextStyle(
-                                fontSize: 20,
+                              textStyle:  TextStyle(
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                                 letterSpacing: .4,
@@ -88,7 +90,7 @@ class _BudgetState extends State<Budget> {
                       itemCount: budgetList.length,
                       options: CarouselOptions(
                         enableInfiniteScroll: false,
-                        height: 110,
+                        height: 110.h,
                         reverse: true,
                         viewportFraction: .55,
                         enlargeCenterPage: true,
@@ -99,15 +101,15 @@ class _BudgetState extends State<Budget> {
                       itemBuilder: (_, index, o) {
                         return Container(
                           padding:
-                          const    EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                          width: 180,
+                              EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
+                          width: 180.w,
                           child: Column(
                             children: [
                               Text(
                                 formatCurrency.format(budgetList[index].price),
                                 style: GoogleFonts.dmSans(
-                                  textStyle: const TextStyle(
-                                    fontSize: 35,
+                                  textStyle:  TextStyle(
+                                    fontSize: 35.sp,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
                                   ),
@@ -116,8 +118,8 @@ class _BudgetState extends State<Budget> {
                               Text(
                                 budgetList[index].month,
                                 style: GoogleFonts.dmSans(
-                                  textStyle: const TextStyle(
-                                    fontSize: 15,
+                                  textStyle:  TextStyle(
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
                                   ),
@@ -133,13 +135,13 @@ class _BudgetState extends State<Budget> {
               ),
             ),
             Positioned(
-              top: 250,
+              top: 250.h,
               right: width * .1,
               child: Container(
                 width: width * .8,
                 height: height * .6,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   color: const Color(0xFFF9F9FB),
                 ),
                 child: BudgetListView(width: width),

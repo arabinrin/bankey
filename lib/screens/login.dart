@@ -4,6 +4,7 @@ import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -22,26 +23,26 @@ class _LoginState extends State<Login> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 100,
+             SizedBox(
+              height: 100.h,
             ),
             Text(
               'Welcome Back!',
               style: GoogleFonts.dmSans(
-                textStyle: const TextStyle(
-                  fontSize: 32,
+                textStyle:  TextStyle(
+                  fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: 25.h,
             ),
             Text(
               'Sign in to continue',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 15,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   color: Colors.black.withOpacity(.8),
                   letterSpacing: .4,
@@ -51,8 +52,8 @@ class _LoginState extends State<Login> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-            const SizedBox(
-              height: 50,
+             SizedBox(
+              height: 50.h,
             ),
             Form(
               child: Column(
@@ -66,8 +67,8 @@ class _LoginState extends State<Login> {
                     icon: Icons.lock,
                     hintText: 'Password',
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -76,7 +77,7 @@ class _LoginState extends State<Login> {
                         'Forget Password',
                         style: GoogleFonts.dmSans(
                           textStyle: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: Colors.black.withOpacity(.8),
                           ),
@@ -84,8 +85,8 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 60,
+                   SizedBox(
+                    height: 60.h,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -103,7 +104,7 @@ class _LoginState extends State<Login> {
                       );
                     },
                     child: Container(
-                      height: 60,
+                      height: 60.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: kprimarycolor,
@@ -112,8 +113,8 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'Sign in',
                           style: GoogleFonts.dmSans(
-                            textStyle: const TextStyle(
-                              fontSize: 18,
+                            textStyle:  TextStyle(
+                              fontSize: 18.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
                             ),
@@ -122,8 +123,8 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                   SizedBox(
+                    height: 20.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -131,8 +132,8 @@ class _LoginState extends State<Login> {
                       Text(
                         'Don\'t have an account?',
                         style: GoogleFonts.dmSans(
-                          textStyle: const TextStyle(
-                            fontSize: 15,
+                          textStyle:  TextStyle(
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -144,8 +145,8 @@ class _LoginState extends State<Login> {
                         child: Text(
                           ' - Sign Up',
                           style: GoogleFonts.dmSans(
-                            textStyle: const TextStyle(
-                              fontSize: 15,
+                            textStyle:  TextStyle(
+                              fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:bankey/model/category.dart';
 import 'package:bankey/utils/constant.dart';
@@ -27,7 +28,7 @@ class _CategoryTileState extends State<CategoryTile> {
         progressValue++;
 
         secondaryProgressValue = secondaryProgressValue + 2;
-        if (progressValue == categoryModel[1].price/100) {
+        if (progressValue == categoryModel[1].price / 100) {
           _timer.cancel();
         }
         if (secondaryProgressValue > 100) {
@@ -61,8 +62,8 @@ class _CategoryTileState extends State<CategoryTile> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: 130,
-                  width: 130,
+                  height: 130.h,
+                  width: 130.w,
                   child: SfRadialGauge(axes: <RadialAxis>[
                     // Create primary radial axis
                     RadialAxis(
@@ -78,7 +79,7 @@ class _CategoryTileState extends State<CategoryTile> {
                         ),
                         pointers: <GaugePointer>[
                           RangePointer(
-                              value:  categoryModel[i].target/10,
+                              value: categoryModel[i].target / 10,
                               width: 0.3,
                               sizeUnit: GaugeSizeUnit.factor,
                               enableAnimation: true,
@@ -91,8 +92,8 @@ class _CategoryTileState extends State<CategoryTile> {
                             horizontalAlignment: GaugeAlignment.center,
                             widget: Image.asset(
                               categoryModel[i].img,
-                              height: 40,
-                              width: 40,
+                              height: 40.h,
+                              width: 40.w,
                               // color: kGreen,
                             ),
                           )
@@ -121,7 +122,7 @@ class _CategoryTileState extends State<CategoryTile> {
                   categoryModel[i].item,
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.h,
                       fontWeight: FontWeight.bold,
                       color: kBlack,
                     ),
@@ -132,15 +133,15 @@ class _CategoryTileState extends State<CategoryTile> {
                   '\$${categoryModel[i].price}',
                   style: GoogleFonts.dmSans(
                     textStyle: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                       color: kBlack,
                     ),
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 10.h,
                 ),
                 Container(
                     padding:
@@ -153,7 +154,7 @@ class _CategoryTileState extends State<CategoryTile> {
                       'On track',
                       style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.bold,
                           color: kBlack.withOpacity(.6),
                         ),

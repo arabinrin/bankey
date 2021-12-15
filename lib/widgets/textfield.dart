@@ -1,5 +1,7 @@
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class RoundedInputField extends StatelessWidget {
   final String hintText;
@@ -38,11 +40,11 @@ class TextFieldContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:const EdgeInsets.symmetric(vertical: 10),
-      padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: EdgeInsets.symmetric(vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
       decoration: BoxDecoration(
         color: kLightGrey,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: child,
     );

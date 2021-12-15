@@ -2,6 +2,8 @@
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class Button extends StatelessWidget {
   String? title;
@@ -15,18 +17,18 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
       Container(
-        height: 60,
+        height: 60.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           color: color,
         ),
         child: Center(
           child: Text(
             title.toString(),
             style: GoogleFonts.dmSans(
-              textStyle: const TextStyle(
+              textStyle:  TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),

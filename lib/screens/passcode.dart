@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:passcode_screen/circle.dart';
 import 'package:passcode_screen/keyboard.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class DemoPage extends StatefulWidget {
   @override
@@ -35,10 +37,10 @@ class _DemoPageState extends State<DemoPage> {
             Text(
               'You are ${isAuthenticated ? '' : 'not'}'
               ' authenticated',
-              style: const TextStyle(fontSize: 16),
+              style:  TextStyle(fontSize: 16.sp),
             ),
-           const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             _lockScreenButton(context),
           ],
@@ -48,21 +50,21 @@ class _DemoPageState extends State<DemoPage> {
   }
 
   _lockScreenButton(BuildContext context) => MaterialButton(
-        padding: const EdgeInsets.only(left: 50, right: 50),
+        padding:  EdgeInsets.only(left: 50.w, right: 50.w),
         color: Theme.of(context).primaryColor,
-        child: const Text(
+        child:  Text(
           'Lock Screen',
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17.sp),
         ),
         onPressed: () {
           _showLockScreen(
             context,
             opaque: false,
-            cancelButton: const Text(
+            cancelButton:  Text(
               'Cancel',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 color: Colors.white,
               ),
               semanticsLabel: 'Cancel',
@@ -83,18 +85,18 @@ class _DemoPageState extends State<DemoPage> {
           opaque: opaque,
           pageBuilder: (context, animation, secondaryAnimation) =>
               PasscodeScreen(
-            title: const Text(
+            title:  Text(
               'Enter Passcode',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 28),
+              style: TextStyle(color: Colors.white, fontSize: 28.sp),
             ),
             circleUIConfig: circleUIConfig,
             keyboardUIConfig: keyboardUIConfig,
             passwordEnteredCallback: _passcodeEntered,
             cancelButton: cancelButton,
-            deleteButton: const Text(
+            deleteButton:  Text(
               'Delete',
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              style: TextStyle(fontSize: 16.sp, color: Colors.white),
               semanticsLabel: 'Delete',
             ),
             shouldTriggerVerification: _verificationNotifier.stream,
@@ -124,13 +126,13 @@ class _DemoPageState extends State<DemoPage> {
   _passcodeRestoreButton() => Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          margin: const EdgeInsets.only(bottom: 10.0, top: 20.0),
+          margin:  EdgeInsets.only(bottom: 10.0.h, top: 20.0.h),
           child: FlatButton(
-            child: const Text(
+            child:  Text(
               "Reset passcode",
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 16,
+              style:  TextStyle(
+                  fontSize: 16.sp,
                   color: Colors.white,
                   fontWeight: FontWeight.w300),
             ),
@@ -169,18 +171,18 @@ class _DemoPageState extends State<DemoPage> {
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             FlatButton(
-              child: const Text(
+              child:  Text(
                 "Cancel",
-                style: const TextStyle(fontSize: 18),
+                style:  TextStyle(fontSize: 18.sp),
               ),
               onPressed: () {
                 Navigator.maybePop(context);
               },
             ),
             FlatButton(
-              child: const Text(
+              child:  Text(
                 "I proceed",
-                style: const TextStyle(fontSize: 18),
+                style:  TextStyle(fontSize: 18.sp),
               ),
               onPressed: onAccepted,
             ),

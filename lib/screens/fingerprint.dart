@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bankey/screens/number_sign_up.dart';
+import 'package:bankey/screens/signup.dart';
 import 'package:bankey/screens/summary.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
@@ -13,6 +14,8 @@ import 'package:local_auth/local_auth.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:passcode_screen/circle.dart';
 import 'package:passcode_screen/keyboard.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:passcode_screen/passcode_screen.dart';
 
 class Fingerprint extends StatefulWidget {
@@ -82,7 +85,7 @@ class _FingerprintState extends State<Fingerprint> {
       authorized = authenticated ? "Authorized" : " to authenticate";
       print(authorized);
       if (authenticated) {
-        changeScreenReplacement(context,const Summary());
+        changeScreenReplacement(context, const Summary());
       }
     });
   }
@@ -113,18 +116,18 @@ class _FingerprintState extends State<Fingerprint> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>const NumberLog()));
+                                    builder: (context) => const SignUp()));
                           },
-                          icon:const Icon(Icons.logout))),
+                          icon: const Icon(Icons.logout))),
                 ]),
             Container(
-              margin: const EdgeInsets.symmetric(
-                vertical: 20,
+              margin: EdgeInsets.symmetric(
+                vertical: 20.h,
               ),
               child: Image.asset(
                 'images/finger.png',
-                width: 260,
-                height: 260,
+                width: 260.w,
+                height: 260.h,
               ),
             ),
             const SizedBox(
@@ -134,22 +137,21 @@ class _FingerprintState extends State<Fingerprint> {
               'Welcome back to Bankey',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 26,
+                  fontSize: 26.sp,
                   fontWeight: FontWeight.w700,
                   color: kBlack,
                 ),
-              
               ),
-              textAlign:TextAlign.center,
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             Text(
               'Activate touch ID so you don’t need to confirm your PASSCODE every time you want to use Bankey',
               style: GoogleFonts.dmSans(
-                textStyle: const TextStyle(
-                  fontSize: 15,
+                textStyle:  TextStyle(
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.black87,
                 ),
@@ -158,8 +160,8 @@ class _FingerprintState extends State<Fingerprint> {
               overflow: TextOverflow.ellipsis,
               maxLines: 5,
             ),
-            const SizedBox(
-              height: 50,
+             SizedBox(
+              height: 50.h,
             ),
             GestureDetector(
               onTap: _authenticate,
@@ -168,30 +170,30 @@ class _FingerprintState extends State<Fingerprint> {
                 title: 'Fingerprint',
               ),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             GestureDetector(
               onTap: () {
                 _showLockScreen(
                   context,
-                  keyboardUIConfig:const KeyboardUIConfig(
+                  keyboardUIConfig:  KeyboardUIConfig(
                     digitFillColor: Colors.transparent,
-                    digitInnerMargin: const EdgeInsets.all(10),
+                    digitInnerMargin:  EdgeInsets.all(10),
                     digitTextStyle:
-                         TextStyle(fontSize: 30, color: Colors.black),
+                        TextStyle(fontSize: 30.sp, color: Colors.black),
                     digitBorderWidth: 0,
                     primaryColor: Colors.transparent,
                   ),
                   circleUIConfig: CircleUIConfig(
                       borderColor: kprimarycolor,
                       fillColor: kprimarycolor,
-                      circleSize: 20),
+                      circleSize: 20.r),
                   opaque: true,
-                  cancelButton:const Text(
+                  cancelButton:  Text(
                     'Cancel',
-                    style:  TextStyle(
-                      fontSize: 16,
+                    style: TextStyle(
+                      fontSize: 16.sp,
                       color: Colors.black,
                     ),
                     semanticsLabel: 'Cancel',
@@ -227,7 +229,7 @@ class _FingerprintState extends State<Fingerprint> {
               'Enter Passcode',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w700,
                   color: kBlack,
                 ),
@@ -241,7 +243,7 @@ class _FingerprintState extends State<Fingerprint> {
               'Delete',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   color: kBlack,
                 ),
               ),
@@ -281,7 +283,7 @@ class _FingerprintState extends State<Fingerprint> {
               'Reset Passcode',
               style: GoogleFonts.dmSans(
                 textStyle: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                   color: kBlack,
                 ),
@@ -315,48 +317,50 @@ class _FingerprintState extends State<Fingerprint> {
             'Reset Passcode',
             style: GoogleFonts.dmSans(
               textStyle: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
                 color: kBlack,
               ),
             ),
           ),
           content: Text(
-                    'Passcode reset is a non-secure operation!\nAre you sure want to reset?',
-                    style: GoogleFonts.dmSans(
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: kBlack,
-                      ),
-                    ),),
-         
+            'Passcode reset is a non-secure operation!\nAre you sure want to reset?',
+            style: GoogleFonts.dmSans(
+              textStyle: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+                color: kBlack,
+              ),
+            ),
+          ),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             FlatButton(
-              child:  Text(
-                    'Cancel',
-                    style: GoogleFonts.dmSans(
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: kBlack,
-                      ),
-                    ),),
+              child: Text(
+                'Cancel',
+                style: GoogleFonts.dmSans(
+                  textStyle: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: kBlack,
+                  ),
+                ),
+              ),
               onPressed: () {
                 Navigator.maybePop(context);
               },
             ),
             FlatButton(
               child: Text(
-                    'I proceed',
-                    style: GoogleFonts.dmSans(
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: kBlack,
-                      ),
-                    ),),
+                'I proceed',
+                style: GoogleFonts.dmSans(
+                  textStyle: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: kBlack,
+                  ),
+                ),
+              ),
               onPressed: onAccepted,
             ),
           ],

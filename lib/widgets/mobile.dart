@@ -2,6 +2,8 @@ import 'package:bankey/model/contact.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class Mobile extends StatelessWidget {
   const Mobile({
     Key? key,
@@ -19,7 +21,7 @@ class Mobile extends StatelessWidget {
                 'Recent',
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
                     color: kBlack,
                   ),
@@ -29,17 +31,17 @@ class Mobile extends StatelessWidget {
           ),
         ),
         Container(
-          height: 160,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          height: 160.h,
+          padding:  EdgeInsets.symmetric(horizontal: 10.w),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: contactModel.length,
             itemBuilder: (_, i) {
               return Container(
                 margin: EdgeInsets.all(10),
-                height: 165,
-                width: 140,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                height: 165.h,
+                width: 140.w,
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -47,13 +49,13 @@ class Mobile extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      height: 60,
-                      width: 60,
+                      height: 60.h,
+                      width: 60.w,
                       margin:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                       decoration: BoxDecoration(
                         color: whiteback,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         image: DecorationImage(
                           image: AssetImage(
                             contactModel[i].img,
@@ -66,7 +68,7 @@ class Mobile extends StatelessWidget {
                       contactModel[i].name,
                       style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
-                          fontSize: 13,
+                          fontSize: 13.sp,
                           fontWeight: FontWeight.w700,
                           color: kBlack,
                         ),
@@ -78,7 +80,7 @@ class Mobile extends StatelessWidget {
                         contactModel[i].contact,
                         style: GoogleFonts.dmSans(
                           textStyle: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
                             color: Color(0xFF9EA6BE),
                           ),
@@ -92,7 +94,7 @@ class Mobile extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10),
+          margin: EdgeInsets.symmetric(vertical: 10.h),
           padding: EdgeInsets.all(20),
           color: Colors.white,
           child: Column(
@@ -103,7 +105,7 @@ class Mobile extends StatelessWidget {
                     'All Contacts',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                         color: kBlack,
                       ),
@@ -113,13 +115,13 @@ class Mobile extends StatelessWidget {
                 ],
               ),
               Container(
-                height: 340,
+                height: 340.h,
                 child: ListView.separated(
                   separatorBuilder: (BuildContext context, i) => Divider(),
                   itemCount: contactModel.length,
                   itemBuilder: (BuildContext context, int i) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      padding:  EdgeInsets.symmetric(vertical: 10.0.h),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,13 +129,13 @@ class Mobile extends StatelessWidget {
                           Row(
                             children: [
                               Container(
-                                height: 60,
-                                width: 60,
+                                height: 60.h,
+                                width: 60.w,
                                 margin: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 10),
+                                    horizontal: 10.w, vertical: 10.h),
                                 decoration: BoxDecoration(
                                   color: whiteback,
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20.r),
                                   image: DecorationImage(
                                     image: AssetImage(
                                       contactModel[i].img,
@@ -148,7 +150,7 @@ class Mobile extends StatelessWidget {
                                     contactModel[i].name,
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 13,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.w700,
                                         color: kBlack,
                                       ),
@@ -160,7 +162,7 @@ class Mobile extends StatelessWidget {
                                       contactModel[i].contact,
                                       style: GoogleFonts.dmSans(
                                         textStyle: TextStyle(
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w700,
                                           color: Color(0xFF9EA6BE),
                                         ),
@@ -174,8 +176,8 @@ class Mobile extends StatelessWidget {
                           GestureDetector(
                             onTap: () {},
                             child: Container(
-                              height: 35,
-                              width: 75,
+                              height: 35.h,
+                              width: 75.w,
                               decoration: BoxDecoration(
                                   color: Color(0xFF9EA6BE),
                                   borderRadius: BorderRadius.circular(5)),
@@ -183,8 +185,8 @@ class Mobile extends StatelessWidget {
                                 child: Text(
                                   'invite',
                                   style: GoogleFonts.dmSans(
-                                    textStyle: const TextStyle(
-                                      fontSize: 12,
+                                    textStyle:  TextStyle(
+                                      fontSize: 12.sp,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white,
                                     ),

@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Summary extends StatefulWidget {
   const Summary({Key? key}) : super(key: key);
@@ -30,7 +31,10 @@ class _SummaryState extends State<Summary> {
 
   @override
   Widget build(BuildContext context) {
+      final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
       backgroundColor: Colors.white,
@@ -39,8 +43,8 @@ class _SummaryState extends State<Summary> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,29 +59,29 @@ class _SummaryState extends State<Summary> {
                     'Summary',
                     style: GoogleFonts.dmSans(
                       textStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                         color: kBlack,
-                        letterSpacing: .4,
+                       
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    width: 10,
+                   SizedBox(
+                    width: 10.w,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
               Image.asset(
                 'images/summary.png',
-                height: 190,
-                width: 235,
+                height: 190.h,
+                width: 235.w,
                 // color: kGreen,
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
               Text(
                 'This month’s spending',
@@ -96,7 +100,7 @@ class _SummaryState extends State<Summary> {
                 formatCurrency.format(1753),
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
-                    fontSize: 40,
+                    fontSize: 40.sp,
                     fontWeight: FontWeight.bold,
                     color: kBlack,
                   ),
@@ -109,24 +113,25 @@ class _SummaryState extends State<Summary> {
                 'Well done, you have maintained your \n spending.',
                 style: GoogleFonts.dmSans(
                   textStyle: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xFF1C1939).withOpacity(.8),
                   ),
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(
-                height: 10,
+               SizedBox(
+                height: 10.h,
               ),
               GestureDetector(
                 onTap: () {
+                  print('width: ${width} \n height: ${height}');
                   // changeScreen(context, Pie());
                 },
                 child: Button(title: 'Great', color: kprimarycolor),
               ),
-              const SizedBox(
-                height: 15,
+               SizedBox(
+                height: 15.h,
               ),
               Container(
                 color: const Color(0xFFF9F9FB),
@@ -135,14 +140,14 @@ class _SummaryState extends State<Summary> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const SizedBox(
-                          height: 10,
+                         SizedBox(
+                          height: 10.h,
                         ),
                         Text(
                           'Top Category',
                           style: GoogleFonts.dmSans(
                             textStyle: TextStyle(
-                              fontSize: 18,
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.w700,
                               color: kBlack,
                             ),
@@ -150,8 +155,8 @@ class _SummaryState extends State<Summary> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     const CategoryTile(),
                   ],

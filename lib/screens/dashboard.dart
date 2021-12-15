@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class DashBoaard extends StatefulWidget {
   const DashBoaard({Key? key}) : super(key: key);
@@ -22,8 +24,8 @@ class _DashBoaardState extends State<DashBoaard> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height.h;
+    final width = MediaQuery.of(context).size.width.w;
 
     return Scaffold(
       backgroundColor: whiteback,
@@ -40,22 +42,22 @@ class _DashBoaardState extends State<DashBoaard> {
                     color: kprimarycolor,
                     child: Column(
                       children: [
-                      const  SizedBox(
-                          height: 80,
+                        SizedBox(
+                          height: 80.h,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 100,
+                              height: 100.h,
                               child: Column(
                                 children: [
                                   Text(
                                     formatCurrency.format(7425),
                                     style: GoogleFonts.dmSans(
-                                      textStyle: const TextStyle(
-                                        fontSize: 40,
+                                      textStyle:  TextStyle(
+                                        fontSize: 40.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
                                       ),
@@ -65,7 +67,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                     'Available balance',
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w400,
                                         color:
                                          const   Color(0xFFFFFFFF).withOpacity(.8),
@@ -76,8 +78,8 @@ class _DashBoaardState extends State<DashBoaard> {
                               ),
                             ),
                             Container(
-                              height: 50,
-                              width: 50,
+                              height: 50.h,
+                              width: 50.w,
                               decoration:  BoxDecoration(
                                 shape: BoxShape.circle,
                                 image:const DecorationImage(
@@ -98,11 +100,11 @@ class _DashBoaardState extends State<DashBoaard> {
                     top: height * .25,
                     left: width * .1,
                     child: Container(
-                      height: 220,
+                      height: 220.h,
                       width: width * .8,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: Padding(
                         padding:
@@ -120,36 +122,36 @@ class _DashBoaardState extends State<DashBoaard> {
                                       'Spent',
                                       style: GoogleFonts.dmSans(
                                         textStyle: TextStyle(
-                                          fontSize: 13,
+                                          fontSize: 13.sp,
                                           fontWeight: FontWeight.w400,
                                           color:
                                               Color(0xFF1C1939).withOpacity(.8),
                                         ),
                                       ),
                                     ),
-                               const     SizedBox(
-                                      height: 5,
+                                    SizedBox(
+                                      height: 5.h,
                                     ),
                                     Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
-                                            height: 10,
-                                            width: 10,
+                                            height: 10.h,
+                                            width: 10.w,
                                             decoration: const BoxDecoration(
                                               color: Colors.red,
                                               shape: BoxShape.circle,
                                             ),
                                           ),
-                                        const  SizedBox(
-                                            width: 4,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Text(
                                             formatCurrency.format(1460),
                                             style: GoogleFonts.dmSans(
                                               textStyle: TextStyle(
-                                                fontSize: 24,
+                                                fontSize: 24.sp,
                                                 fontWeight: FontWeight.bold,
                                                 color: kBlack,
                                               ),
@@ -165,33 +167,33 @@ class _DashBoaardState extends State<DashBoaard> {
                                       'Earned',
                                       style: GoogleFonts.dmSans(
                                         textStyle: TextStyle(
-                                          fontSize: 13,
+                                          fontSize: 13.sp,
                                           fontWeight: FontWeight.w400,
                                           color:
                                               Color(0xFF1C1939).withOpacity(.8),
                                         ),
                                       ),
                                     ),
-                                  const  SizedBox(
-                                      height: 5,
+                                    SizedBox(
+                                      height: 5.h,
                                     ),
                                     Row(children: [
                                       Container(
-                                        height: 10,
-                                        width: 10,
+                                        height: 10.h,
+                                        width: 10.w,
                                         decoration: const BoxDecoration(
                                           color: Color(0xFF967AF3),
                                           shape: BoxShape.circle,
                                         ),
                                       ),
-                                   const   SizedBox(
-                                        width: 4,
+                                      SizedBox(
+                                        width: 4.w,
                                       ),
                                       Text(
                                         formatCurrency.format(2730),
                                         style: GoogleFonts.dmSans(
                                           textStyle: TextStyle(
-                                            fontSize: 24,
+                                            fontSize: 24.sp,
                                             fontWeight: FontWeight.bold,
                                             color: kBlack,
                                           ),
@@ -202,18 +204,18 @@ class _DashBoaardState extends State<DashBoaard> {
                                 )
                               ],
                             ),
-                          const  SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: 10.h,
                             ),
                             Divider(),
-                         const   SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: 10.h,
                             ),
                             Text(
                               'You spent 2,732 on dining out this month. This is 25% more than last month.',
                               style: GoogleFonts.dmSans(
                                 textStyle: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xFF1C1939).withOpacity(.8),
                                 ),
@@ -235,7 +237,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                 style: GoogleFonts.dmSans(
                                   textStyle: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    fontSize: 13,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.w700,
                                     color: kprimarycolor,
                                   ),
@@ -250,8 +252,8 @@ class _DashBoaardState extends State<DashBoaard> {
                 ],
               ),
             ),
-           const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.h,
             ),
             Padding(
               padding: const EdgeInsets.all(21.0),
@@ -263,7 +265,7 @@ class _DashBoaardState extends State<DashBoaard> {
                         'Activities',
                         style: GoogleFonts.dmSans(
                           textStyle: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: kBlack,
                           ),
@@ -272,8 +274,8 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
@@ -305,8 +307,8 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
@@ -314,7 +316,7 @@ class _DashBoaardState extends State<DashBoaard> {
                         'Complete Verification',
                         style: GoogleFonts.dmSans(
                           textStyle: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: kBlack,
                           ),
@@ -323,23 +325,23 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                   SizedBox(
+                    height: 20.h,
                   ),
                   Container(
                     padding:const EdgeInsets.all(20),
-                    height: 370,
+                    height: 370.h,
                     width: width * .8,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(.1),
-                          blurRadius: 5,
-                          spreadRadius: 5,
+                          blurRadius: 5.r,
+                          spreadRadius: 5.r,
                         )
                       ],
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: Column(
                       children: [
@@ -352,8 +354,8 @@ class _DashBoaardState extends State<DashBoaard> {
                                 Text(
                                   '75%',
                                   style: GoogleFonts.dmSans(
-                                    textStyle: const TextStyle(
-                                      fontSize: 25,
+                                    textStyle:  TextStyle(
+                                      fontSize: 25.sp,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     ),
@@ -363,7 +365,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                   '7 of 10 completed',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 14.sp,
                                       fontWeight: FontWeight.w500,
                                       color:const Color(0xFF1C1939).withOpacity(.8),
                                     ),
@@ -377,7 +379,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                 backgroundColor: Colors.grey.withOpacity(.5),
                                 width: width * .6,
                                 animation: true,
-                                lineHeight: 12.0,
+                                lineHeight: 12.0.h,
                                 animationDuration: 2500,
                                 percent: .74,
                                 linearStrokeCap: LinearStrokeCap.roundAll,
@@ -387,8 +389,8 @@ class _DashBoaardState extends State<DashBoaard> {
                           ],
                         ),
                        const Divider(),
-                        const SizedBox(
-                          height: 10,
+                         SizedBox(
+                          height: 10.h,
                         ),
                         Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,8 +399,8 @@ class _DashBoaardState extends State<DashBoaard> {
                                 padding: const EdgeInsets.all(10.0),
                                 child: Image.asset(
                                   'images/user.png',
-                                  height: 20,
-                                  width: 20,
+                                  height: 20.h,
+                                  width: 20.w,
                                 ),
                               ),
                               Column(
@@ -408,22 +410,22 @@ class _DashBoaardState extends State<DashBoaard> {
                                     'Personal Information',
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontWeight: FontWeight.w700,
                                         color: kBlack,
                                       ),
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                   SizedBox(
+                                    height: 10.h,
                                   ),
                                   Container(
                                     child: Text(
                                       'Please provide documents to verify your  \n source of income personal informmation.',
                                       style: GoogleFonts.dmSans(
                                         textStyle: TextStyle(
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.w500,
                                           color:
                                             const  Color(0xFF1C1939).withOpacity(.8),
@@ -438,7 +440,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                     'Continue',
                                     style: GoogleFonts.dmSans(
                                       textStyle: TextStyle(
-                                        fontSize: 13,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.w700,
                                         color: kprimarycolor,
                                       ),
@@ -447,12 +449,12 @@ class _DashBoaardState extends State<DashBoaard> {
                                 ],
                               )
                             ]),
-                        const SizedBox(
-                          height: 10,
+                         SizedBox(
+                          height: 10.h,
                         ),
                         Divider(),
-                        const SizedBox(
-                          height: 10,
+                         SizedBox(
+                          height: 10.sp,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -461,15 +463,15 @@ class _DashBoaardState extends State<DashBoaard> {
                               padding: const EdgeInsets.all(10.0),
                               child: Image.asset(
                                 'images/identity-card.png',
-                                height: 20,
-                                width: 20,
+                                height: 20.h,
+                                width: 20.w,
                               ),
                             ),
                             Text(
                               'Complete Verification',
                               style: GoogleFonts.dmSans(
                                 textStyle: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w600,
                                   color: kBlack,
                                 ),
@@ -478,8 +480,8 @@ class _DashBoaardState extends State<DashBoaard> {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 10,
+                         SizedBox(
+                          height: 10.h,
                         ),
                       const  Divider(),
                         Row(
@@ -489,8 +491,8 @@ class _DashBoaardState extends State<DashBoaard> {
                               padding: const EdgeInsets.all(10.0),
                               child: Image.asset(
                                 'images/email.png',
-                                height: 20,
-                                width: 20,
+                                height: 20.h,
+                                width: 20.w,
                               ),
                             ),
                             Text(
@@ -509,8 +511,8 @@ class _DashBoaardState extends State<DashBoaard> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
@@ -518,7 +520,7 @@ class _DashBoaardState extends State<DashBoaard> {
                         'News and promo',
                         style: GoogleFonts.dmSans(
                           textStyle: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: kBlack,
                           ),
@@ -527,22 +529,22 @@ class _DashBoaardState extends State<DashBoaard> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Container(
-                    height: 320,
+                    height: 320.h,
                     width: width * .8,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(.1),
-                          blurRadius: 5,
-                          spreadRadius: 5,
+                          blurRadius: 5.r,
+                          spreadRadius: 5.r,
                         )
                       ],
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: Column(
                       children: [
@@ -554,12 +556,12 @@ class _DashBoaardState extends State<DashBoaard> {
                             children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 10),
+                                     EdgeInsets.symmetric(vertical: 10.h),
                                 child: Text(
                                   'Invite your friends!',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontWeight: FontWeight.w700,
                                       color: kBlack,
                                     ),
@@ -571,7 +573,7 @@ class _DashBoaardState extends State<DashBoaard> {
                                 'For every user you invite and signs up, you can earn up \$5.',
                                 style: GoogleFonts.dmSans(
                                   textStyle: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                     fontWeight: FontWeight.w500,
                                     color:const Color(0xFF1C1939).withOpacity(.8),
                                   ),
@@ -582,12 +584,12 @@ class _DashBoaardState extends State<DashBoaard> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 20),
+                                     EdgeInsets.symmetric(vertical: 20.h),
                                 child: Text(
                                   'Invite Now',
                                   style: GoogleFonts.dmSans(
                                     textStyle: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.w700,
                                       color: kprimarycolor,
                                     ),
