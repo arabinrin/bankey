@@ -1,10 +1,13 @@
+import 'package:bankey/provider/user.dart';
 import 'package:bankey/screens/signup.dart';
+import 'package:bankey/screens/summary.dart';
 import 'package:bankey/utils/constant.dart';
 import 'package:bankey/utils/navigator.dart';
 import 'package:bankey/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -14,8 +17,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<UserProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -23,19 +30,19 @@ class _LoginState extends State<Login> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-             SizedBox(
+            SizedBox(
               height: 100.h,
             ),
             Text(
               'Welcome Back!',
               style: GoogleFonts.dmSans(
-                textStyle:  TextStyle(
+                textStyle: TextStyle(
                   fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 25.h,
             ),
             Text(
@@ -52,22 +59,24 @@ class _LoginState extends State<Login> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-             SizedBox(
+            SizedBox(
               height: 50.h,
             ),
             Form(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const RoundedInputField(
+                  RoundedInputField(
+                    controller: authProvider.email,
                     icon: Icons.email_outlined,
                     hintText: 'Email Address',
                   ),
-                  const RoundedInputField(
+                  RoundedInputField(
+                    controller: authProvider.password,
                     icon: Icons.lock,
                     hintText: 'Password',
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 10.h,
                   ),
                   Row(
@@ -85,7 +94,7 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 60.h,
                   ),
                   GestureDetector(
@@ -103,27 +112,41 @@ class _LoginState extends State<Login> {
                         ),
                       );
                     },
-                    child: Container(
-                      height: 60.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: kprimarycolor,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Sign in',
-                          style: GoogleFonts.dmSans(
-                            textStyle:  TextStyle(
-                              fontSize: 18.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
+                    child: GestureDetector(
+                      onTap: () async {
+                        if (!await authProvider.signIn()) {
+                          _key.currentState?.showSnackBar(
+                            SnackBar(
+                              content: Text('Login fails'),
+                            ),
+                          );
+                          return;
+                        }
+                        authProvider.cleanController();
+                        changeScreenReplacement(context, Summary());
+                      },
+                      child: Container(
+                        height: 60.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: kprimarycolor,
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Sign in',
+                            style: GoogleFonts.dmSans(
+                              textStyle: TextStyle(
+                                fontSize: 18.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 20.h,
                   ),
                   Row(
@@ -132,7 +155,7 @@ class _LoginState extends State<Login> {
                       Text(
                         'Don\'t have an account?',
                         style: GoogleFonts.dmSans(
-                          textStyle:  TextStyle(
+                          textStyle: TextStyle(
                             fontSize: 15.sp,
                             fontWeight: FontWeight.w400,
                           ),
@@ -140,12 +163,12 @@ class _LoginState extends State<Login> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          changeScreen(context,const SignUp());
+                          changeScreen(context, const SignUp());
                         },
                         child: Text(
                           ' - Sign Up',
                           style: GoogleFonts.dmSans(
-                            textStyle:  TextStyle(
+                            textStyle: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
                             ),

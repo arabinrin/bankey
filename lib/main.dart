@@ -1,4 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:bankey/model/bank_account.dart';
+import 'package:bankey/provider/bank_account.dart';
+import 'package:bankey/provider/user.dart';
 import 'package:bankey/screens/fingerprint.dart';
 import 'package:bankey/screens/signup.dart';
 import 'package:bankey/screens/splash.dart';
@@ -9,6 +12,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,15 +26,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
-    return ScreenUtilInit(
-      designSize: Size(411.428, 866.285),
-      builder: () => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-            scaffoldBackgroundColor: kprimarycolor, fontFamily: 'DM sans'),
-        home: Initializer(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: UserProvider.initialize()),
+        ChangeNotifierProvider.value(value: BankAccountModels()),
+      ],
+      child: ScreenUtilInit(
+        designSize: Size(411.428, 866.285),
+        builder: () => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+              scaffoldBackgroundColor: kprimarycolor, fontFamily: 'DM sans'),
+          home: Initializer(),
+        ),
       ),
     );
   }

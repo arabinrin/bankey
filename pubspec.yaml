@@ -57,6 +57,8 @@ dependencies:
   passcode_screen: 
   charts_flutter:
   flutter_screenutil: 
+  custom_switch:
+  shared_preferences:
 
   
 
